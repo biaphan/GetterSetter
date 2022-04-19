@@ -6,29 +6,71 @@ public class MainApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		SinhVien arr[] = new SinhVien[5];
 		Scanner sc = new Scanner(System.in);
-//		p.setName("Man");
-//		p.setOld(19);
-//		p.setHoa(6);
-//		p.setToan(10);
-//		p.setLy(7);		
-		SinhVien arr[] = new SinhVien[5];		
+		System.out.println("NHAP VAO 5 SINH VIEN");
+		System.out.println("******************");
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = new SinhVien(null, i, null, null, i);
-			System.out.println(" Nhập Sinh Viên Thứ : " + (i+1));
-			System.out.println("Nhap ten :");
+			System.out.println("Nhap vao sinh vien thu " + (i + 1));
+			arr[i] = new SinhVien();
+			
+			System.out.println("Nhap ten");
 			arr[i].setName(sc.nextLine());
-			arr[i].setAdress(sc.nextLine());
-			arr[i].setDtb(sc.nextFloat());
-			arr[i].setOnl(sc.nextInt());
-			arr[i].setSdt(sc.nextLine());
+			
+			System.out.println("Nhap tuoi");
+			arr[i].setOld(sc.nextInt());
+			
+			System.out.println("Toan");
+			arr[i].setToan(sc.nextFloat());
+			
+			System.out.println("Li");
+			arr[i].setLi(sc.nextFloat());
+			
+			System.out.println("Hoa");
+			arr[i].setHoa(sc.nextFloat());
 			sc.nextLine();
 			
-			
-			System.out.println("Diem Trung binh" + arr[i].getDtb() );
-
+			System.out.println("***********************");
+		}
+		//In danh sach sinh vien
+		System.out.println("DANH SACH SINH VIEN");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.format("Name:%s - Old:%d - DTB:%.2f", arr[i].getName(), arr[i].getOld(), arr[i].getDtb()).println();
+		}
+		
+		//Tim dtb cao nhat
+		float dtb = arr[0].getDtb();
+		for (int i = 0; i < arr.length; i++) {
+			if(dtb < arr[i].getDtb())
+				dtb = arr[i].getDtb();
+		}
+		//In danh sach sinh vien co dtb cao nhat
+		System.out.println("DANH SACH SINH VIEN CO DIEM TRUNG BINH CAO NHAT");
+		System.out.println("**********************************************");
+		print(arr);
+		
+		//Sap xep
+		for (int i = 0; i < arr.length - 1; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				if(arr[i].getDtb() < arr[j].getDtb()) {
+					SinhVien sv = arr[i];
+					arr[i] = arr[j];
+					arr[j] = sv;
+				}
 			}
-			System.out.println("---------------------------");
+		}
+		System.out.println("SAP XEP DANH SACH");
+		System.out.println("****************");
+		print(arr);
+	}
+
+	private static void print(SinhVien[] arr) {
+		// TODO Auto-generated method stub
+		//In danh sach sinh vien
+		for (int i = 0; i < arr.length; i++) {
+			System.out.format("Name:%s - Old:%d - DTB:%.2f", arr[i].getName(), arr[i].getOld(), arr[i].getDtb()).println();
+		}
+		
 	}
 
 }

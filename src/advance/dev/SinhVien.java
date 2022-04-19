@@ -1,48 +1,44 @@
 package advance.dev;
 
 public class SinhVien {
-	String name;
-	int onl;
-	String adress;
-	String sdt;
-	float dtb;
-	public SinhVien(String name, int onl, String adress, String sdt, float dtb) {
-		super();
-		this.name = name;
-		this.onl = onl;
-		this.adress = adress;
-		this.sdt = sdt;
-		this.dtb = dtb;
-	}
+	private String name;
+	private int old;
+	private float toan;
+	private float li;
+	private float hoa;
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getOnl() {
-		return onl;
+	public int getOld() {
+		return old;
 	}
-	public void setOnl(int onl) {
-		this.onl = onl;
+	public void setOld(int old) {
+		this.old = old;
 	}
-	public String getAdress() {
-		return adress;
+	public float getToan() {
+		return toan;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setToan(float toan) {
+		this.toan = toan;
 	}
-	public String getSdt() {
-		return sdt;
+	public float getLi() {
+		return li;
 	}
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
+	public void setLi(float li) {
+		this.li = li;
+	}
+	public float getHoa() {
+		return hoa;
+	}
+	public void setHoa(float hoa) {
+		this.hoa = hoa;
 	}
 	public float getDtb() {
-		return dtb;
+		return (toan + li + hoa)/3;
 	}
-	public void setDtb(float dtb) {
-		this.dtb = dtb;
-	}
-	
+
 }
